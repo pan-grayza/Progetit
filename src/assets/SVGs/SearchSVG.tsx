@@ -1,6 +1,10 @@
 import React from 'react'
 
-const SearchOutlined = () => {
+type Props = {
+    activated: true | false
+}
+
+const SearchSVG: React.FC<Props> = ({activated = false}) => {
     return (
         <svg
             version="1.1"
@@ -11,6 +15,9 @@ const SearchOutlined = () => {
             y="0px"
             viewBox="0 0 487.95 487.95"
             xmlSpace="preserve"
+            fill={
+                activated ? 'rgb(27, 153, 139, 75%)' : 'rgb(27, 153, 139, 50%)'
+            }
         >
             <g>
                 <g>
@@ -25,4 +32,4 @@ const SearchOutlined = () => {
     )
 }
 
-export default SearchOutlined
+export default SearchSVG

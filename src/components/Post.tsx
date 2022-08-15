@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useId} from 'react'
 
 import NavButton from './NavButton'
 
@@ -29,7 +29,7 @@ const Post = () => {
         }
     }
     return (
-        <div className="relative w-full flex flex-col pb-2 pt-4 border-y border-lightBlue-75">
+        <div className="relative w-full flex flex-col pb-2 pt-4">
             <div className="relative w-full flex flex-row justify-center items-start">
                 <div className="relative min-w-[2.5rem] flex flex-col items-center justify-center gap-1">
                     <button
@@ -78,7 +78,28 @@ const Post = () => {
     )
 }
 const NavMenu = () => {
-    const otherMenuClick = (e: any) => {}
+    const [menuOpened, setMenuOpened] = useState(true)
+    const postId = useId()
+    const otherMenuClick = (e: any) => {
+        const menu = document.getElementById(
+            `post-menu-${postId}`
+        ) as HTMLElement
+        let position = menu.getBoundingClientRect()
+        let yPositionOfMenu = position.top
+        if (menuOpened) {
+            if (window.innerHeight / 1.5 < yPositionOfMenu) {
+                menu.style.transformOrigin = 'bottom 10%'
+                menu.style.top = '-3.5rem'
+            } else {
+                menu.style.transformOrigin = 'top -10%'
+                menu.style.top = '100%'
+            }
+            menu.style.transform = 'scale(100%)'
+        } else {
+            menu.style.transform = 'scale(0%)'
+        }
+        setMenuOpened((prevState) => !prevState)
+    }
     return (
         <div className="relative w-full flex flex-row items-center justify-evenly">
             <div className="hidden"></div>
@@ -126,7 +147,10 @@ const NavMenu = () => {
                 >
                     <OtherMenu />
                 </NavButton>
-                <div className="absolute top-[-3.5rem] flex w-20 h-16 bg-white drop-shadow-md rounded-lg"></div>
+                <div
+                    id={`post-menu-${postId}`}
+                    className="absolute top-[-3.5rem] flex w-20 scale-0 h-16 bg-white drop-shadow-md rounded-lg duration-100 z-50"
+                ></div>
             </div>
         </div>
     )

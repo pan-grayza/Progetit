@@ -1,8 +1,16 @@
 /** @type {import('tailwindcss').Config} */
+const plugin = require('tailwindcss/plugin')
 module.exports = {
     content: ['./src/**/*.{js,ts,jsx,tsx}'],
     theme: {
-        extend: {},
+        extend: {
+            spacing: {
+                sidebarRightPosition:
+                    'calc(32rem + calc(calc(100vw - 32rem) / 2))',
+                searchLeftPosition:
+                    'calc(32rem + calc(calc(100vw - 32rem) / 2))',
+            },
+        },
         colors: {
             transparent: 'transparent',
             white: '#ffffff',

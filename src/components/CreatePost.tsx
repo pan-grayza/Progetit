@@ -29,7 +29,7 @@ const CreatePost = () => {
             Math.floor(Math.random() * TextAreaPlaceHolders.length)
         ]
     return (
-        <div className="relative w-full flex flex-col p-8">
+        <form className="relative w-full flex flex-col p-8">
             <textarea
                 maxLength={200}
                 id="CreatePostTextArea"
@@ -44,7 +44,7 @@ const CreatePost = () => {
             >
                 <span className="z-10">Post</span>
             </button>
-        </div>
+        </form>
     )
 }
 
