@@ -1,0 +1,59 @@
+import React from 'react'
+import LogoContainer from './LogoContainer'
+import NavButton from './NavButton'
+
+//Svgs
+import HomeOutlined from '../assets/SVGs/HomeOutlined'
+import BookmarkOutlined from '../assets/SVGs/BookmarkOutlined'
+import UserOutlined from '../assets/SVGs/UserOutlined'
+
+const Sidebar = () => {
+    return (
+        <div className="relative w-64 h-screen flex flex-col justify-items-center items-center gap-2 p-4">
+            <LogoContainer />
+            <div className="relative mt-2 flex flex-col gap-0.5 scale-105">
+                <NavButton
+                    width="13rem"
+                    height="3rem"
+                    borderRadius="0.75rem"
+                    gap="1rem"
+                    lineDirection="vertical"
+                >
+                    <div className="scale-90">
+                        <HomeOutlined />
+                    </div>
+
+                    <span className="text-md">Home</span>
+                </NavButton>
+                <NavButton
+                    width="13rem"
+                    height="3rem"
+                    borderRadius="0.75rem"
+                    gap="1rem"
+                    lineDirection="vertical"
+                >
+                    <div className="scale-90">
+                        <BookmarkOutlined />
+                    </div>
+
+                    <span className="text-md">Bookmarks</span>
+                </NavButton>
+                <NavButton
+                    width="13rem"
+                    height="3rem"
+                    borderRadius="0.75rem"
+                    gap="1rem"
+                    lineDirection="vertical"
+                >
+                    <div className="scale-90">
+                        <UserOutlined />
+                    </div>
+
+                    <span className="text-md">Profile</span>
+                </NavButton>
+            </div>
+        </div>
+    )
+}
+
+export default Sidebar
