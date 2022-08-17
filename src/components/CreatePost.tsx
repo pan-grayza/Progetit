@@ -1,4 +1,5 @@
 import React from 'react'
+import dynamic from 'next/dynamic'
 
 const CreatePost = () => {
     const [postContent, setPostContent] = React.useState('')
@@ -29,7 +30,7 @@ const CreatePost = () => {
             Math.floor(Math.random() * TextAreaPlaceHolders.length)
         ]
     return (
-        <form className="relative w-full flex flex-col p-8">
+        <form className="relative w-full flex flex-col px-8 pb-6 pt-[4rem]">
             <textarea
                 maxLength={200}
                 id="CreatePostTextArea"
@@ -48,4 +49,8 @@ const CreatePost = () => {
     )
 }
 
-export default CreatePost
+// export default CreatePost
+
+export default dynamic(() => Promise.resolve(CreatePost), {
+    ssr: false,
+})

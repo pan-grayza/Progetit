@@ -3,17 +3,24 @@ const plugin = require('tailwindcss/plugin')
 module.exports = {
     content: ['./src/**/*.{js,ts,jsx,tsx}'],
     theme: {
+        screens: {
+            sm: '32rem',
+
+            md: '36rem',
+        },
         extend: {
             spacing: {
                 sidebarRightPosition:
                     'calc(32rem + calc(calc(100vw - 32rem) / 2))',
                 searchLeftPosition:
                     'calc(32rem + calc(calc(100vw - 32rem) / 2))',
+                navWidth: 'calc(32rem - 3px)',
             },
         },
         colors: {
             transparent: 'transparent',
             white: '#ffffff',
+            halfTransperentWhite: 'rgb(255, 255, 255, 50%)',
             midnight: {
                 100: 'rgb(25, 50, 60)',
                 75: 'rgb(25, 50, 60, 75%)',

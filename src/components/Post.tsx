@@ -52,9 +52,9 @@ const Post = () => {
                         <h1 className="relative text-[1rem] font-bold">
                             Cool guy
                         </h1>
-                        <p className="relative text-[0.9rem] text-midnight-75">
+                        <p className="relative text-[0.9rem] text-midnight-75 mt-0.5">
                             @CoolGuy
-                            <span className="relative text-midnight-50 ml-1">
+                            <span className="relative text-midnight-50 ml-2 mt-2">
                                 18:32
                             </span>
                         </p>
@@ -88,10 +88,10 @@ const NavMenu = () => {
         let yPositionOfMenu = position.top
         if (menuOpened) {
             if (window.innerHeight / 1.5 < yPositionOfMenu) {
-                menu.style.transformOrigin = 'bottom 10%'
+                menu.style.transformOrigin = 'bottom'
                 menu.style.top = '-3.5rem'
             } else {
-                menu.style.transformOrigin = 'top -10%'
+                menu.style.transformOrigin = 'center -10%'
                 menu.style.top = '100%'
             }
             menu.style.transform = 'scale(100%)'
