@@ -20,16 +20,19 @@ export const authOptions: NextAuthOptions = {
     // Configure one or more authentication providers
     adapter: PrismaAdapter(prisma),
     providers: [
-        DiscordProvider({
-            clientId: env.DISCORD_CLIENT_ID,
-            clientSecret: env.DISCORD_CLIENT_SECRET,
-        }),
+        // DiscordProvider({
+        //     clientId: env.DISCORD_CLIENT_ID,
+        //     clientSecret: env.DISCORD_CLIENT_SECRET,
+        // }),
         GitHubProvider({
             clientId: env.GITHUB_ID,
             clientSecret: env.GITHUB_SECRET,
         }),
         // ...add more providers here
     ],
+    pages: {
+        signIn: '/auth/signIn',
+    },
 }
 
 export default NextAuth(authOptions)
