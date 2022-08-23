@@ -1,4 +1,6 @@
 import {getProviders, signIn} from 'next-auth/react'
+import {unstable_getServerSession} from 'next-auth/next'
+import {authOptions} from '../api/auth/[...nextauth]'
 
 interface props {
     providers: Object
@@ -20,7 +22,21 @@ export default function SignIn({providers}: props) {
     )
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context: any) {
+    const session = await unstable_getServerSession(
+        context.req,
+        context.res,
+        authOptions
+    )
+
+    if (session) {
+        return {
+            redirect: {
+                destination: '/',
+                permanent: false,
+            },
+        }
+    }
     const providers = await getProviders()
     return {
         props: {providers},
