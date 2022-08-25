@@ -16,11 +16,18 @@ module.exports = {
                     'calc(32rem + calc(calc(100vw - 32rem) / 2))',
                 navWidth: 'calc(32rem - 3px)',
             },
+            backgroundImage: {
+                signUpWaves: "url('../assets/SVGs/Textures/SignUpWaves.svg')",
+            },
         },
         colors: {
             transparent: 'transparent',
             white: '#ffffff',
             halfTransperentWhite: 'rgb(255, 255, 255, 50%)',
+            greenGray: 'rgb(230, 240, 240, 100%)',
+            halfTransperentGreenGray: 'rgb(230, 240, 240, 50%)',
+            halfTransperentGray: 'rgb(240, 240, 240, 50%)',
+
             midnight: {
                 100: 'rgb(25, 50, 60)',
                 75: 'rgb(25, 50, 60, 75%)',

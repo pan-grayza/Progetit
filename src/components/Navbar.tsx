@@ -1,13 +1,14 @@
 import React from 'react'
 import LogoContainer from './LogoContainer'
 import NavButton from './NavButton'
+import Search from './Search'
 
 //Svgs
-import HomeOutlined from '../assets/SVGs/HomeOutlined'
-import BookmarkOutlined from '../assets/SVGs/BookmarkOutlined'
-import UserOutlined from '../assets/SVGs/UserOutlined'
+import HomeOutlined from '../assets/SVGs/Menu/HomeOutlined'
+import BookmarkOutlined from '../assets/SVGs/Menu/BookmarkOutlined'
+import UserOutlined from '../assets/SVGs/Menu/UserOutlined'
 
-const Sidebar = () => {
+const Navbar = () => {
     return (
         <div className="fixed right-sidebarRightPosition max-w-64 h-screen flex flex-col items-center gap-2 p-4">
             <LogoContainer />
@@ -62,4 +63,13 @@ const Sidebar = () => {
     )
 }
 
-export default Sidebar
+const NavbarPlusSearch = () => {
+    return (
+        <>
+            <Navbar />
+            <Search />
+        </>
+    )
+}
+
+export default NavbarPlusSearch

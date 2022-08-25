@@ -2,9 +2,8 @@ import type {NextPage} from 'next'
 import Head from 'next/head'
 import {trpc} from '../utils/trpc'
 import {useSession, signIn, signOut} from 'next-auth/react'
+// import Navbar from '../components/Navbar'
 
-import Sidebar from '../components/Sidebar'
-import Main from '../components/Main'
 import Search from '../components/Search'
 
 const Home: NextPage = () => {
@@ -18,22 +17,15 @@ const Home: NextPage = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             {session && (
-                <div>
-                    Signed in as {session?.user?.email} <br />
-                    <button onClick={() => signOut()}>Sign out</button>
-                </div>
-            )}{' '}
+                <div className="relative w-screen h-screen flex flex-row justify-center text-midnight-100"></div>
+            )}
             {!session && (
                 <div>
                     Not signed in <br />
                     <button onClick={() => signIn()}>Sign in</button>
                 </div>
             )}
-            {/* // <div className="relative w-screen h-screen flex flex-row justify-center text-midnight-100">
-            //     <Sidebar />
-            //     <Main></Main>
-            //     <Search />
-            // </div> */}
+            {/* //  */}
         </>
     )
 }

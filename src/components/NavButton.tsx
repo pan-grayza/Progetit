@@ -53,7 +53,7 @@ const NavButton: React.FC<Props> = ({
                         transitionDuration: duration,
                     }}
                     className="absolute w-full h-full bg-seaGreen-25 scale-[97%] opacity-0
-                    group-hover:scale-100 group-hover:opacity-100"
+                    group-hover:scale-100 group-hover:opacity-100 z-[-1]"
                 ></div>
             </button>
         </>

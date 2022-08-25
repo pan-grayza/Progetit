@@ -1,6 +1,6 @@
 import React, {useState, useRef} from 'react'
-import SearchSVG from '../assets/SVGs/SearchSVG'
-import CloseSVG from '../assets/SVGs/CloseSVG'
+import SearchSVG from '../assets/SVGs/UI/SearchSVG'
+import CloseSVG from '../assets/SVGs/UI/CloseSVG'
 
 const Search = () => {
     const [isInputFocused, setIsInputFocused] = useState(false)

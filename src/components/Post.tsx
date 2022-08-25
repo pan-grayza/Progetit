@@ -2,12 +2,12 @@ import React, {useState, useId} from 'react'
 
 import NavButton from './NavButton'
 
-import ReUse from '../assets/SVGs/ReUse'
-import Share from '../assets/SVGs/Share'
-import Comment from '../assets/SVGs/Comment'
-import OtherMenu from '../assets/SVGs/OtherMenu'
-import ArrowUpvote from '../assets/SVGs/ArrowUpvote'
-import ArrowDownVote from '../assets/SVGs/ArrowDownVote'
+import ReUse from '../assets/SVGs/Post/ReUse'
+import Share from '../assets/SVGs/Post/Share'
+import Comment from '../assets/SVGs/Post/Comment'
+import OtherMenu from '../assets/SVGs/Post/OtherMenu'
+import ArrowUpvote from '../assets/SVGs/Post/ArrowUpvote'
+import ArrowDownVote from '../assets/SVGs/Post/ArrowDownVote'
 
 const Post = () => {
     const [upVoteActivated, setUpVoteActivated] = useState(false)
