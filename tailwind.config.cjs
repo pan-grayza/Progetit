@@ -11,10 +11,10 @@ module.exports = {
         extend: {
             spacing: {
                 sidebarRightPosition:
-                    'calc(32rem + calc(calc(100vw - 32rem) / 2))',
+                    'calc(32rem + calc(calc(100vw - 30rem) / 2))',
                 searchLeftPosition:
-                    'calc(32rem + calc(calc(100vw - 32rem) / 2))',
-                navWidth: 'calc(32rem - 3px)',
+                    'calc(32rem + calc(calc(100vw - 30rem) / 2))',
+                navWidth: 'calc(34rem - 3px)',
             },
             backgroundImage: {
                 signUpWaves: "url('../assets/SVGs/Textures/SignUpWaves.svg')",

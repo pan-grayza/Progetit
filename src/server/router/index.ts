@@ -3,12 +3,12 @@ import {createRouter} from './context'
 import superjson from 'superjson'
 
 import {postRouter} from './post'
-import {protectedExampleRouter} from './protected-example-router'
+// import {userRouter} from './user'
 
 export const appRouter = createRouter()
     .transformer(superjson)
-    .merge('example.', postRouter)
-    .merge('question.', protectedExampleRouter)
+    // .merge('users.', userRouter)
+    .merge('posts.', postRouter)
     .query('hello', {
         resolve: () => {
             return 'Hello from trpc server'

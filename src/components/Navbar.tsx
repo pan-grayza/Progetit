@@ -1,7 +1,9 @@
 import React from 'react'
 import LogoContainer from './LogoContainer'
-import NavButton from './NavButton'
+import Button from './Button'
 import Search from './Search'
+
+import Router from 'next/router'
 
 //Svgs
 import HomeOutlined from '../assets/SVGs/Menu/HomeOutlined'
@@ -9,12 +11,21 @@ import BookmarkOutlined from '../assets/SVGs/Menu/BookmarkOutlined'
 import UserOutlined from '../assets/SVGs/Menu/UserOutlined'
 
 const Navbar = () => {
+    const redirectToHome = () => {
+        Router.push('/home')
+    }
+    const redirectToBookmarks = () => {
+        Router.push('/bookmarks')
+    }
+    const redirectToUser = () => {
+        Router.push('/user')
+    }
     return (
         <div className="fixed right-sidebarRightPosition max-w-64 h-screen flex flex-col items-center gap-2 p-4">
             <LogoContainer />
             <div className="relative mt-2 flex flex-col gap-0.5 scale-105">
-                <div>
-                    <NavButton
+                <div onClick={redirectToHome}>
+                    <Button
                         width="13rem"
                         height="3rem"
                         borderRadius="0.75rem"
@@ -26,10 +37,10 @@ const Navbar = () => {
                         </div>
 
                         <span className="text-md">Home</span>
-                    </NavButton>
+                    </Button>
                 </div>
-                <div>
-                    <NavButton
+                <div onClick={redirectToBookmarks}>
+                    <Button
                         width="13rem"
                         height="3rem"
                         borderRadius="0.75rem"
@@ -41,10 +52,10 @@ const Navbar = () => {
                         </div>
 
                         <span className="text-md">Bookmarks</span>
-                    </NavButton>
+                    </Button>
                 </div>
-                <div>
-                    <NavButton
+                <div onClick={redirectToUser}>
+                    <Button
                         width="13rem"
                         height="3rem"
                         borderRadius="0.75rem"
@@ -56,7 +67,7 @@ const Navbar = () => {
                         </div>
 
                         <span className="text-md">Profile</span>
-                    </NavButton>
+                    </Button>
                 </div>
             </div>
         </div>

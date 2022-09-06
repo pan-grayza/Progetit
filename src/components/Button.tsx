@@ -9,9 +9,10 @@ type Props = {
     gap?: string
     duration?: string
     lineDirection?: 'horizontal' | 'vertical'
+    color?: string
 }
 
-const NavButton: React.FC<Props> = ({
+const Button: React.FC<Props> = ({
     children,
     width,
     height,
@@ -20,6 +21,7 @@ const NavButton: React.FC<Props> = ({
     gap,
     lineDirection,
     duration = '200ms',
+    color = 'rgb(27, 153, 139, 25%)',
 }) => {
     let lineWidth = '0'
     let lineHeight = '0'
@@ -51,8 +53,9 @@ const NavButton: React.FC<Props> = ({
                     style={{
                         borderRadius: borderRadius,
                         transitionDuration: duration,
+                        backgroundColor: color,
                     }}
-                    className="absolute w-full h-full bg-seaGreen-25 scale-[97%] opacity-0
+                    className="absolute w-full h-full scale-[98%] opacity-0
                     group-hover:scale-100 group-hover:opacity-100 z-[-1]"
                 ></div>
             </button>
@@ -60,4 +63,4 @@ const NavButton: React.FC<Props> = ({
     )
 }
 
-export default NavButton
+export default Button

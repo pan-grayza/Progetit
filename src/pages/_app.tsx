@@ -5,6 +5,7 @@ import type {AppType} from 'next/dist/shared/lib/utils'
 import superjson from 'superjson'
 import {SessionProvider} from 'next-auth/react'
 import '../styles/globals.css'
+
 import Navbar from '../components/Navbar'
 
 const MyApp: AppType = ({Component, pageProps: {session, ...pageProps}}) => {
@@ -12,7 +13,9 @@ const MyApp: AppType = ({Component, pageProps: {session, ...pageProps}}) => {
         <SessionProvider session={session}>
             <div className="relative w-screen h-screen flex flex-row justify-center text-midnight-100">
                 <Navbar />
-                <Component {...pageProps} />
+                <div className="absolute top-0 w-full max-w-[34rem] h-max border-x-[1px] border-b-[1px] border-lightBlue-75 pb-[2rem]">
+                    <Component {...pageProps} />
+                </div>
             </div>
         </SessionProvider>
     )

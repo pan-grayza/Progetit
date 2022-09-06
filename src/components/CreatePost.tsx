@@ -1,11 +1,22 @@
 import React from 'react'
+import {useForm} from 'react-hook-form'
+import {useRouter} from 'next/router'
 import dynamic from 'next/dynamic'
+import {CreatePostInput} from '../schema/post.schema'
+import {trpc} from '../utils/trpc'
 
 const CreatePost = () => {
-    const [postContent, setPostContent] = React.useState('')
-    const onChange = (e: any) => {
-        setPostContent(e.target.value)
+    const {handleSubmit, register} = useForm<CreatePostInput>()
+    const router = useRouter()
+    const {mutate, error} = trpc.useMutation(['posts.create-post'], {
+        onSuccess: ({id}) => {
+            router.push(`/posts/${id}`)
+        },
+    })
+    function onSubmit(values: CreatePostInput) {
+        mutate(values)
     }
+
     React.useEffect(() => {
         const textarea = document.querySelector(
             '#CreatePostTextArea'
@@ -29,14 +40,19 @@ const CreatePost = () => {
         TextAreaPlaceHolders[
             Math.floor(Math.random() * TextAreaPlaceHolders.length)
         ]
+
     return (
-        <form className="relative w-full flex flex-col px-8 pb-6 pt-[4rem]">
+        <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="relative w-full flex flex-col px-8 pb-6 pt-[4rem]"
+        >
+            {error && error.message}
             <textarea
                 maxLength={200}
                 id="CreatePostTextArea"
                 className="relative overflow-hidden resize-none w-full focus:border-none focus:outline-none"
-                onChange={onChange}
                 placeholder={randomizeTextAreaPlaceHolders()}
+                {...register('body')}
             ></textarea>
             <button
                 className="relative flex justify-center items-center self-end mt-4 py-2 px-[1.5rem] rounded-lg text-white

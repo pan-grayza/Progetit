@@ -1,21 +1,45 @@
+import {createPostSchema, getSinglePostSchema} from '../../schema/post.schema'
 import {createRouter} from './context'
+import * as trpc from '@trpc/server'
 import {z} from 'zod'
 
 export const postRouter = createRouter()
-    .query('hello', {
-        input: z
-            .object({
-                text: z.string().nullish(),
-            })
-            .nullish(),
-        resolve({input}) {
-            return {
-                greeting: `Hello ${input?.text ?? 'world'}`,
+    .mutation('create-post', {
+        input: createPostSchema,
+        async resolve({ctx, input}) {
+            if (!ctx.user) {
+                new trpc.TRPCError({
+                    code: 'FORBIDDEN',
+                    message: 'Can not create a post while logged out',
+                })
             }
+            const post = await ctx.prisma.post.create({
+                data: {
+                    ...input,
+                    user: {
+                        connect: {
+                            id: ctx.user?.id,
+                        },
+                    },
+                },
+            })
+
+            return post
         },
     })
-    .query('getAll', {
-        async resolve({ctx}) {
-            return await ctx.prisma.example.findMany()
+
+    .query('posts', {
+        resolve({ctx}) {
+            return ctx.prisma.post.findMany()
+        },
+    })
+    .query('single-post', {
+        input: getSinglePostSchema,
+        resolve({input, ctx}) {
+            return ctx.prisma.post.findUnique({
+                where: {
+                    id: input.postId,
+                },
+            })
         },
     })

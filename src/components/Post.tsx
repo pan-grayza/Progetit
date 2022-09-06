@@ -1,6 +1,6 @@
 import React, {useState, useId} from 'react'
 
-import NavButton from './NavButton'
+import Button from './Button'
 
 import ReUse from '../assets/SVGs/Post/ReUse'
 import Share from '../assets/SVGs/Post/Share'
@@ -34,14 +34,14 @@ const Post = () => {
                 <div className="relative min-w-[2.5rem] flex flex-col items-center justify-center gap-1">
                     <button
                         onClick={upVote}
-                        className="relative flex flex-col items-center justify-center ml-[0.3rem]"
+                        className="relative flex flex-col items-center justify-center ml-[0.3rem] focus:outline-none"
                     >
                         <ArrowUpvote activated={upVoteActivated} />
                     </button>
                     <p>123</p>
                     <button
                         onClick={downVote}
-                        className="relative flex flex-col items-center justify-center"
+                        className="relative flex flex-col items-center justify-center focus:outline-none"
                     >
                         <ArrowDownVote activated={downVoteActivated} />
                     </button>
@@ -103,7 +103,7 @@ const NavMenu = () => {
     return (
         <div className="relative w-full flex flex-row items-center justify-evenly">
             <div className="hidden"></div>
-            <NavButton
+            <Button
                 width="2rem"
                 height="2rem"
                 borderRadius="0.5rem"
@@ -111,8 +111,8 @@ const NavMenu = () => {
                 duration="250ms"
             >
                 <Comment />
-            </NavButton>
-            <NavButton
+            </Button>
+            <Button
                 width="2rem"
                 height="2rem"
                 borderRadius="0.5rem"
@@ -122,8 +122,8 @@ const NavMenu = () => {
                 <div className="scale-95">
                     <ReUse />
                 </div>
-            </NavButton>
-            <NavButton
+            </Button>
+            <Button
                 width="2rem"
                 height="2rem"
                 borderRadius="0.5rem"
@@ -133,12 +133,12 @@ const NavMenu = () => {
                 <div className="scale-90">
                     <Share />
                 </div>
-            </NavButton>
+            </Button>
             <div
                 className="relative flex justify-center items-center"
                 onClick={otherMenuClick}
             >
-                <NavButton
+                <Button
                     width="2rem"
                     height="2rem"
                     borderRadius="0.5rem"
@@ -146,7 +146,7 @@ const NavMenu = () => {
                     padding="0.4rem"
                 >
                     <OtherMenu />
-                </NavButton>
+                </Button>
                 <div
                     id={`post-menu-${postId}`}
                     className="absolute top-[-3.5rem] flex w-20 scale-0 h-16 bg-white drop-shadow-md rounded-lg duration-100 z-50"

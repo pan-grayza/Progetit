@@ -43,7 +43,7 @@ const Search = () => {
                     ref={input}
                     type="text"
                     placeholder="Search"
-                    className="relative flex w-full h-full focus:outline-none"
+                    className="relative flex w-full h-full outline-none focus:outline-none active:outline-none"
                     onBlur={onBlurInput}
                     onChange={onInputChange}
                     value={inputValue}
