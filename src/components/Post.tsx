@@ -34,14 +34,14 @@ const Post = () => {
                 <div className="relative min-w-[2.5rem] flex flex-col items-center justify-center gap-1">
                     <button
                         onClick={upVote}
-                        className="relative flex flex-col items-center justify-center ml-[0.3rem] focus:outline-none"
+                        className="relative flex flex-col items-center justify-center ml-[0.3rem] focus:border-none active:border-none"
                     >
                         <ArrowUpvote activated={upVoteActivated} />
                     </button>
                     <p>123</p>
                     <button
                         onClick={downVote}
-                        className="relative flex flex-col items-center justify-center focus:outline-none"
+                        className="relative flex flex-col items-center justify-center focus:border-none active:border-none"
                     >
                         <ArrowDownVote activated={downVoteActivated} />
                     </button>

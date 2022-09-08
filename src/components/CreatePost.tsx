@@ -50,7 +50,7 @@ const CreatePost = () => {
             <textarea
                 maxLength={200}
                 id="CreatePostTextArea"
-                className="relative overflow-hidden resize-none w-full focus:border-none focus:outline-none"
+                className="relative overflow-hidden resize-none w-full border-none focus:border-none focus:outline-none active:border-none active:outline-none"
                 placeholder={randomizeTextAreaPlaceHolders()}
                 {...register('body')}
             ></textarea>
