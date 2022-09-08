@@ -1,4 +1,4 @@
-import {useEffect, lazy} from 'react'
+import {lazy} from 'react'
 import {getProviders, signIn} from 'next-auth/react'
 import {unstable_getServerSession} from 'next-auth/next'
 import {authOptions} from '../api/auth/[...nextauth]'
@@ -19,7 +19,7 @@ export default function SignIn({providers}: props) {
             bg-gradient-to-b from-white to-greenGray"
         >
             <div className="absolute w-full h-full bg-signUpWaves bg-center bg-cover bg-no-repeat">
-                {/* <SignUpWaves /> */}
+                <SignUpWaves />
             </div>
             <div
                 className="flex flex-col gap-[1rem] w-[16rem] p-4 text-midnight-100 white rounded-lg

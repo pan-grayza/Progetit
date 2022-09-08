@@ -4,29 +4,29 @@ import * as trpc from '@trpc/server'
 import {z} from 'zod'
 
 export const postRouter = createRouter()
-    .mutation('create-post', {
-        input: createPostSchema,
-        async resolve({ctx, input}) {
-            if (!ctx.user) {
-                new trpc.TRPCError({
-                    code: 'FORBIDDEN',
-                    message: 'Can not create a post while logged out',
-                })
-            }
-            const post = await ctx.prisma.post.create({
-                data: {
-                    ...input,
-                    user: {
-                        connect: {
-                            id: ctx.user?.id,
-                        },
-                    },
-                },
-            })
+    // .mutation('create-post', {
+    //     input: createPostSchema,
+    //     async resolve({ctx, input}) {
+    //         if (!ctx.user) {
+    //             new trpc.TRPCError({
+    //                 code: 'FORBIDDEN',
+    //                 message: 'Can not create a post while logged out',
+    //             })
+    //         }
+    //         const post = await ctx.prisma.post.create({
+    //             data: {
+    //                 ...input,
+    //                 user: {
+    //                     connect: {
+    //                         id: ctx.user?.id,
+    //                     },
+    //                 },
+    //             },
+    //         })
 
-            return post
-        },
-    })
+    //          return post
+    //     },
+    // })
 
     .query('posts', {
         resolve({ctx}) {

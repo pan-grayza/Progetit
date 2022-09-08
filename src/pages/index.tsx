@@ -1,7 +1,6 @@
 import type {NextPage} from 'next'
 import Head from 'next/head'
-import {trpc} from '../utils/trpc'
-import {useSession, signIn, signOut} from 'next-auth/react'
+import {useSession, signIn} from 'next-auth/react'
 // import Navbar from '../components/Navbar'
 
 import Router from 'next/router'
