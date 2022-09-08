@@ -8,13 +8,13 @@ import {trpc} from '../utils/trpc'
 const CreatePost = () => {
     const {handleSubmit, register} = useForm<CreatePostInput>()
     const router = useRouter()
-    const {mutate, error} = trpc.useMutation(['posts.create-post'], {
-        onSuccess: ({id}) => {
-            router.push(`/posts/${id}`)
-        },
-    })
+    // const {mutate, error} = trpc.useMutation(['posts.create-post'], {
+    //     onSuccess: ({id}) => {
+    //         router.push(`/posts/${id}`)
+    //     },
+    // })
     function onSubmit(values: CreatePostInput) {
-        mutate(values)
+        // mutate(values)
     }
 
     React.useEffect(() => {
@@ -46,7 +46,7 @@ const CreatePost = () => {
             onSubmit={handleSubmit(onSubmit)}
             className="relative w-full flex flex-col px-8 pb-6 pt-[4rem]"
         >
-            {error && error.message}
+            {/* {error && error.message} */}
             <textarea
                 maxLength={200}
                 id="CreatePostTextArea"
